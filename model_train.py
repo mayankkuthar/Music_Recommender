@@ -13,7 +13,7 @@ def tokenization(txt):
     return " ".join(stemming)
 
 df = pd.read_csv("spotify_millsongdata.csv")
-df = df.sample(10000).drop('link', axis=1).reset_index(drop=True)
+df = df.sample(1000).drop('link', axis=1).reset_index(drop=True)
 
 df['text'] = df['text'].str.lower().replace(r'^\w\s', ' ').replace(r'\n', ' ', regex = True)
 df['text'] = df['text'].apply(lambda x: tokenization(x))
